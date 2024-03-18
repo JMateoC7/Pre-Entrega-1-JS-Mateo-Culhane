@@ -1,5 +1,6 @@
+alert("Bienvenido! Aqui se mostraran 5 juegos mejores valorados de steam con su precio convertido a pesos argentinos mas impuestos.")
+
 function simuladorPreciosJuegos() {
-    alert("Bienvenido! Aqui se mostraran 5 juegos mejores valorados de steam con su precio convertido a pesos argentinos mas impuestos.")
 
 let juegoSeleccionado;
     do {
