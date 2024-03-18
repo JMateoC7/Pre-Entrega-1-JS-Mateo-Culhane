@@ -26,7 +26,7 @@ let juegoSeleccionado;
                 continue;    
         }
 
-        // preguntara si el usuario desea ver los juegos nuevamente, si ingresa "si, Si, sI, SI" se los mostrara, en caso de que alguien cualquier otro palabra o dato, el simulador lo despedira.
+        // preguntara si el usuario desea ver los juegos nuevamente, si ingresa "si, Si, sI, SI" se los mostrara, en caso de que ingrese cualquier otra palabra o dato, el simulador lo despedira.
         let opcionBool = prompt("Deseas conocer el precio de otro juego?");
         if (opcionBool !== null && opcionBool.toLowerCase() !== "si") {
             alert("Gracias por utilizar este simulador, nos vemos!");
