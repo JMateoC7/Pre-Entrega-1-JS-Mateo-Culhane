@@ -1,0 +1,42 @@
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    gap: 10px;
+}
+
+header nav ul li {
+    color: whitesmoke;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.cards {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.cards img {
+    height: 100%;
+}
