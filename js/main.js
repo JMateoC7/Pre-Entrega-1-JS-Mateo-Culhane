@@ -12,6 +12,16 @@ let juegosDisponibles = [
     { nombre: "Resident Evil 8 Village", precioUSD: 29.99 }
 ];
 
+// Función para buscar un juego por su nombre
+function buscarJuegoPorNombre(nombre) {
+    return juegosDisponibles.find(juego => juego.nombre.toLowerCase() === nombre.toLowerCase());
+}
+
+// Función para filtrar juegos por un rango de precios
+function filtrarJuegosPorPrecio(precioMinimo, precioMaximo) {
+    return juegosDisponibles.filter(juego => juego.precioUSD >= precioMinimo && juego.precioUSD <= precioMaximo);
+}
+
 // Array para guardar los juegos que haya elegido el user
 
 let carrito = [];
@@ -79,13 +89,36 @@ function main() {
     while (simulador) {
         mostrarJuegos();
 
-        const opcionCarrito = parseInt(prompt("Ingrese 1 para agregar un juego al carrito o 2 para ver el carrito:"));
+        const opcionCarrito = parseInt(prompt("Ingrese:\n 1- Para agregar un juego al carrito. \n 2- Para filtrar por precio.\n 3- Para buscar un juego por nombre. \n 4- Para ver el carrito. "));
         
         switch (opcionCarrito) {
             case 1:
                 agregarAlCarrito();
                 break;
             case 2:
+                const precioMin = parseFloat(prompt("Ingrese el precio mínimo:"));
+                const precioMax = parseFloat(prompt("Ingrese el precio máximo:"));
+                const juegosFiltrados = filtrarJuegosPorPrecio(precioMin, precioMax);
+                if (juegosFiltrados.length > 0) {
+                    let mensaje = "Juegos dentro del rango de precio:\n";
+                    juegosFiltrados.forEach(juego => {
+                        mensaje += `${juego.nombre} - $${juego.precioUSD}\n`;
+                    });
+                    alert(mensaje);
+                } else {
+                    alert("No hay juegos disponibles dentro de ese rango de precios.");
+                }
+                break;
+            case 3:
+                const nombreJuego = prompt("Ingrese el nombre del juego que desea buscar:");
+                const juegoEncontrado = buscarJuegoPorNombre(nombreJuego);
+                if (juegoEncontrado) {
+                    alert(`El juego "${juegoEncontrado.nombre}" está disponible.`);
+                } else {
+                    alert("El juego no está disponible.");
+                }
+                break;
+            case 4:
                 mostrarCarrito();
                 simulador = false;
                 break;
